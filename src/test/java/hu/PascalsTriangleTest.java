@@ -1,5 +1,6 @@
 package hu;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -23,6 +24,7 @@ class PascalsTriangleTest {
     assertEquals(arrayToString(terms), arrayToString(PascalsTriangle.generate(4)));
   }
 
+  @Disabled
   @Test
   public void test20Levels() {
     final long[] terms = { 1L, 1L, 1L, 1L, 2L, 1L, 1L, 3L, 3L, 1L };
