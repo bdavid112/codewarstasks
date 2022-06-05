@@ -1,5 +1,8 @@
 package hu;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class LargeFactorial {
 
   public static String factorial(int n) {
@@ -42,15 +45,11 @@ public class LargeFactorial {
   }
 
   public static String multiply(String number1, String number2) {
-    String[] parts = new String[number2.length()];
-    int partIndex = 0;
-    String partRes = "";
+    List<String> parts = new ArrayList<>();
+    int posNot = 0;
+    String partRes;
     while (number2.length() > 0) {
-      if (partRes.length() != 0) {
-        if (Integer.parseInt(partRes) != 0) {
-          partRes = "";
-        }
-      }
+      partRes = "";
       int actMultiplier = Integer.parseInt(number2.substring(number2.length() - 1));
       int remainder = 0;
       for (int i = number1.length() - 1; i >= 0; i--) {
@@ -65,13 +64,19 @@ public class LargeFactorial {
       if (remainder > 0) {
         partRes = remainder + partRes;
       }
-      parts[partIndex] = partRes;
-      partIndex++;
-      number2 = number2.substring(0, number2.length() - 1);
-      if (Integer.parseInt(partRes) == 0) {
-        partRes = "0";
+      for (int i = 0; i < posNot; i++) {
+        partRes = partRes + "0";
       }
+      parts.add(partRes);
+      number2 = number2.substring(0, number2.length() - 1);
+      posNot++;
     }
-    return add(parts[0], parts[1]);
+    while (parts.size() > 1) {
+      partRes = add(parts.get(0), parts.get(1));
+      parts.set(0, partRes);
+      parts.remove(1);
+    }
+    String res = parts.get(0);
+    return res;
   }
 }

@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class FactorialTest {
+class LargeFactorialTest {
   @Test
   public void addTest() {
     assertEquals("420", LargeFactorial.add("210", "210"));
@@ -17,6 +17,8 @@ class FactorialTest {
   public void multiplyTest() {
     assertEquals("2500", LargeFactorial.multiply("50", "50"));
     assertEquals("250000", LargeFactorial.multiply("500", "500"));
+    assertEquals("39960", LargeFactorial.multiply("333", "120"));
+    assertEquals("307349858373", LargeFactorial.multiply("545313", "563621"));
   }
 
   @Test
