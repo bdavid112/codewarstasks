@@ -8,13 +8,16 @@ public class LargeFactorial {
   public static String factorial(int n) {
     if (n < 0) {
       return null;
+    } else if (n == 0 || n == 1) {
+      return "1";
     }
-    int actualNumber = n;
-    while (actualNumber > 2) {
-
+    String res = "" + n;
+    int actualNumber = n - 1;
+    while (actualNumber > 1) {
+      res = multiply(res, "" + actualNumber);
       actualNumber--;
     }
-    return null;
+    return res;
   }
 
   public static String add(String number1, String number2) {

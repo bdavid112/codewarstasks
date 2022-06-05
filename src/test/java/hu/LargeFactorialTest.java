@@ -22,11 +22,13 @@ class LargeFactorialTest {
   }
 
   @Test
-  public void BasicTests()
-  {
+  public void BasicTests() {
+    assertNull(LargeFactorial.factorial(-23));
+    assertEquals("1", LargeFactorial.factorial(0));
     assertEquals("1", LargeFactorial.factorial(1));
     assertEquals("120", LargeFactorial.factorial(5));
     assertEquals("362880", LargeFactorial.factorial(9));
     assertEquals("1307674368000", LargeFactorial.factorial(15));
+    assertEquals("15511210043330985984000000", LargeFactorial.factorial(25));
   }
 }
